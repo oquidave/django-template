@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% include "includes/header-dashboard.html" %}
+</head>
+<body>
+	<div class="wrapper">
+	    {% include "includes/sidebar-dashboard.html" %}
+
+	    <div class="main-panel">
+	        {% include "includes/navbar-dashboard.html" %}
+	        <div class="content">
+	            {% block body_block %}
+			    	{# Anything outside of this will be inherited if you use extend.#}
+			    {% endblock %}
+
+	        {% include "includes/footer-dashboard.html" %}
+	    	</div>
+    	</div>
+	</div>
+</body>
+  {% include "includes/footer-js-dashboard.html" %}
+</html>
