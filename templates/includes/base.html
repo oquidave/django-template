@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+  {% load static %}
+   <link href="{% static 'css/bootstrap-3.min.css' %}" rel="stylesheet" type="text/css" />
+   <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" type="text/css" />
+	<title>Main title here</title>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="#">Company Inc</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated  %}
+          <li> <a href="/dashboard/">Dashboard</a> </li>
+          <li> <a href="/accounts/profile/">Profile</a> </li>
+          <li> <a href="/accounts/logout/">Sign out </a> </li>
+          {% else %}
+            <li><a href="/accounts/login/">Sign In </a></li>
+            <li>
+              <a class="signup-btn btn btn-success" href="/accounts/signup/">Get started</a>
+            </li>
+          {% endif %}
+      </ul>
+      </div>
+    </nav>
+   
+    <div class="container">
+	    {% block body_block %}
+	    {# Anything outside of this will be inherited if you use extend.#}
+	    {% endblock %}
+    </div>
+    
+    <div class="container-fluid footer-content">
+      {% include "includes/footer.html" %}
+    </div>   
+    {% load static %}
+   <link href="{% static 'js/bootstrap-3.min.js' %}" rel="stylesheet" type="text/css" />
+   <link href="{% static 'js/jquery-2.1.4.min.js' %}" rel="stylesheet" type="text/css" />
+</body>
+</html>

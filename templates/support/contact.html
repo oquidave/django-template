@@ -1,0 +1,27 @@
+{% extends "includes/base.html" %}
+	
+{% block body_block%}
+	<h1>Contact us</h1>
+	<!-- <form action="." method="POST">
+		<table>
+	 	{{ form.as_table }}
+	 	{% csrf_token %} 
+	 	</table>
+	 	<p><input type="submit" value="Submit"></p>
+	</form> -->
+	<form action="." method="POST">
+		{% csrf_token %} 
+		<table>
+		 	<tr><th><label for="id_subject">Subject:</label></th><td>
+		 	<select name="subject" id="id_subject">
+			  <option value="general">General enquiry</option>
+			  <option value="bug">Bug report</option>
+			  <option value="suggestion">Suggestion</option>
+			</select></td></tr>
+			<tr><th><label for="id_sender">Sender:</label></th><td><input type="email" name="sender" id="id_sender" /></td></tr>
+			<tr><th><label for="id_message">Message:</label></th><td><textarea name="message" cols="40" rows="10" required id="id_message">
+			</textarea></td></tr>
+		</table>
+	 	<p><input type="submit" value="Submit"></p>
+	</form>
+{% endblock %}
