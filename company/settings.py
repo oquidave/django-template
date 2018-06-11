@@ -15,7 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
+TEMPLATES_DASHBOARD_DIR = os.path.join(BASE_DIR, 'dashboard/templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATIC_DASHBOARD_DIR = os.path.join(BASE_DIR, 'dashboard/assets')
 MEDIA_DIR = os.path.join(BASE_DIR,'media')
 
 
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'company.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],
+        'DIRS': [TEMPLATES_DIR, TEMPLATES_DASHBOARD_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    STATIC_DIR,
+    STATIC_DIR, STATIC_DASHBOARD_DIR
 ]
 
 # MEDIA INFORMATION:
